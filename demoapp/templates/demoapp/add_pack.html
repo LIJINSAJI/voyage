@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Travel</title>
+    <link rel="stylesheet" href="static/assets5/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets5/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="static/assets5/css/styles.css">
+</head>
+
+<body style="background: rgb(241,247,252);">
+<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgba(73,80,87,0.3) !important;border-radius: 15px;box-shadow: none !important;">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+ <li class="nav-item dropdown no-arrow"><a class="nav-link" style="font-weight: bold;color: var(--bs-body-bg);" href="/travel">Go back<i class="fas fa-undo" style="font-size: 20px;padding-left: 5px;"></i></a></li>
+                              </ul>
+                    </div>
+                </nav>
+    <section class="login-clean">
+
+        <form method="post" >
+            {% csrf_token %}
+            <h2 class="visually-hidden">Login Form</h2>
+            <div class="mb-3"><input class="form-control" type="text" placeholder="Package Name" name="name"></div>
+            <div class="mb-3"><textarea class="form-control" placeholder="Route" name="route"></textarea></div>
+            <div class="mb-3"><input class="form-control" type="text" placeholder="Nearest Location" name="location"></div>
+            <div class="mb-3"><input class="form-control" type="text" placeholder="Itinerary" name="itinerary"></div>
+            <div class="mb-3"><input class="form-control" type="text" placeholder="Cost" name="cost"></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: var(--bs-indigo);">Add Package</button></div>
+        </form>
+    </section>
+    <script src="static/assets5/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets5/js/bs-init.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+.box {
+  box-shadow: inset 5px 6px 11px rgba(255,255,255,0.41), 5px 6px 11px rgba(33,37,41,0.41);
+  height: 243px;
+  border-radius: 20px;
+  width: 242px;
+}
+
+.label {
+  font-size: 13px;
+}
+

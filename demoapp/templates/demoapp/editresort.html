@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add resort</title>
+    <link rel="stylesheet" href="static/assets3/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets3/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/assets3/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="static/assets3/css/styles.css">
+</head>
+
+<body>
+ <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgba(73,80,87,0.3) !important;border-radius: 15px;box-shadow: none !important;">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow"><a class="nav-link" style="font-weight: bold;color: var(--bs-body-bg);" href="/admin_page">Go back<i class="fas fa-undo" style="font-size: 20px;padding-left: 5px;"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+    <div></div>
+    <section class="login-dark" style="background: linear-gradient(156deg, var(--bs-indigo), var(--bs-red));">
+        <h3 align="center" ><font color="white">{{msg}}</font></h3>
+        <form method="post" style="background: rgba(0,0,0,0.4);" action="/uresort" >
+            {% csrf_token %}
+             {% for id,image,name,detail,rent,location in records %}
+            <h2 class="visually-hidden">Login Form</h2>
+            <div class="illustration"><i class="fas fa-plus-square"></i></div>
+            <td ><input type="hidden" name="rid" value="{{id}}"/> </td>
+           <img src="{{image}}" height="100" width="100">
+            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder=" Name" value="{{name}}"></div>
+            <div class="mb-3"><input class="form-control" type="text" name="detail" placeholder="Detail" value="{{detail}}"></div>
+            <div class="mb-3"><input class="form-control" type="text" name="rent" placeholder="Rent" value="{{rent}}"></div>
+            <div class="mb-3"><input class="form-control" type="text" name="location" placeholder="Location" value="{{location}}"></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Update</button></div>
+       {% endfor %}
+        </form>
+    </section>
+    <script src="static/assets3/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Table - Brand</title>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre&amp;display=swap">
+    <link rel="stylesheet" href="static/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar-1.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar-2.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="static/css/Footer-Basic.css">
+    <link rel="stylesheet" href="static/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="static/css/gradient-navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="static/css/Map-Clean.css">
+    <link rel="stylesheet" href="static/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="static/css/Simple-Slider.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper" style="background: var(--bs-gray-400);">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgba(73,80,87,0.3) !important;border-radius: 15px;box-shadow: none !important;">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow"><a class="nav-link" style="font-weight: bold;color: var(--bs-body-bg);" href="/userlogin">Go back<i class="fas fa-undo" style="font-size: 20px;padding-left: 5px;"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="card shadow" style="width: 100%;height: 100%;">
+                        <div class="card-header py-3" style="background: var(--bs-gray-200);">
+                            <h3 class="text-dark">Driver&nbsp;</h3>
+                        </div>
+                        <div class="card-body" style="width: 100%;">
+                            <div class="col d-flex justify-content-center">
+                                <div class="table-responsive text-capitalize table mt-2 user-select-none" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 95%;">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>sL.no</th>
+                                                <th>Name</th>
+                                                <th>address</th>
+                                                <th>Pincode</th>
+                                                <th>Phone</th>
+                                                <th>Emailid</th>
+                                                <th>License No</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                {% for id,name,address,pincode,phone,email,license,status in records %}
+                                                <form action="/driverapproval" method="post">
+                                                    {% csrf_token %}
+                                                <td><input type="hidden" name="uid" value={{ id }}> {{ id }}</td>
+                                                <td style="width: 300px;">{{ name }}</td>
+                                                <td style="width: 300px;">{{ address }}</td>
+                                                <td style="width: 300px;">{{ pincode }}</td>
+                                                <td style="width: 300px;">{{ phone }}</td>
+                                                <td>{{ email }}</td>
+                                                    <td>{{ license }}</td>
+                                                    <td>{{ status }}</td>
+                                                </form>
+                                            </tr>
+                                        </tbody>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="static/js/Simple-Slider.js"></script>
+</body>
+
+</html>

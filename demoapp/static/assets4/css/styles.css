@@ -1,0 +1,8 @@
+.cards {
+  transform: perspective(1000px) rotateX(15deg);
+}
+
+.cards:hover {
+  transform: perspective(280px) rotateX(30deg) translateY(2px);
+}
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>voyage</title>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre&amp;display=swap">
+    <link rel="stylesheet" href="static/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar-1.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar-2.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="static/css/Footer-Basic.css">
+    <link rel="stylesheet" href="static/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="static/css/gradient-navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="static/css/Map-Clean.css">
+    <link rel="stylesheet" href="static/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="static/css/Simple-Slider.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgba(73,80,87,0.3) !important;border-radius: 15px;box-shadow: none !important;">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow"><a class="nav-link" style="font-weight: bold;color: var(--bs-body-bg);" href="/admin_page">Go back<i class="fas fa-undo" style="font-size: 20px;padding-left: 5px;"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                    <!--        <div class="container">-->
+                    <!--             {% for id,image,name,detail,rent,location in records %}-->
+                    <!--            <form action="/resortbook" method="post">-->
+                    <!--                {% csrf_token %}-->
+                    <!--                 <td><input type="hidden" name="rid" value={{ id }}> </td>-->
+                    <!--            <div class="row">-->
+                    <!--                <div class="col-md-3">-->
+                    <!--                    <div style="padding: 30px;">-->
+                    <!--                        <div class="simple-slider">-->
+                    <!--                            <div class="swiper-container">-->
+                    <!--                                <div class="swiper-wrapper">-->
+                    <!--                                    <div class="swiper-slide" style="background: url(&quot;static/img/1_WtZDnrVjk4sPoNc4Br1Hvw-1536x1024.jpeg&quot;) center center / cover no-repeat;height: 200px;"></div>-->
+                    <!--                                    <div class="swiper-slide" style="background: url(&quot;static/img/Voyage-taxi-on-a-trip-at-The-Villages-Florida.jpg&quot;) center center / cover no-repeat;height: 200px;"></div>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="swiper-pagination"></div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+
+                    <!--                        <h1 style="text-align: center;font-family: 'Abhaya Libre', serif;margin-top: 10px;">{{ name }}</h1>-->
+                    <!--                        <h1 style="text-align: center;font-family: 'Abhaya Libre', serif;margin-top: 10px;">{{ detail }}</h1>-->
+                    <!--                        <h1 style="text-align: center;font-family: 'Abhaya Libre', serif;margin-top: 10px;">{{ rent }}</h1>-->
+                    <!--                        <h1 style="text-align: center;font-family: 'Abhaya Libre', serif;margin-top: 10px;">{{ location }}</h1>-->
+                    <!--                        <a class="btn btn-primary" role="button" style="background: var(&#45;&#45;bs-white);color: var(&#45;&#45;bs-dark);border-radius: 0px;border-style: solid;border-color: var(&#45;&#45;bs-dark);margin-right: 20%;margin-left: 20%;" ><input type="submit" value="Book Now"></a>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--            </form>-->
+                    <!--            {% endfor %}-->
+                    <!--        </div>-->
+
+    <div id="lightbox"></div>
+    <div style="margin-bottom: 5%;margin-top: 5%;">
+    <div class="table-responsive" style="background: linear-gradient(-45deg, var(--bs-yellow), var(--bs-teal));margin-left: 5%;margin-right: 5%;border-radius: 20px;padding: 20px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="visually-hidden">Id</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Details</th>
+                    <th>Rent</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+               {% for id,image,name,detail,rent,location in records %}
+
+                <tr>
+                    <td ></td>
+                    <td><img src="{{ image }}" class="zoomD" width="80px" height="80px" alt="img" /></td>
+                    <td>{{ name }}</td>
+                    <td>{{ detail }}</td>
+                    <td>{{ rent }}</td>
+                    <td>{{ location }}</td>
+                    <td>
+                        <form method="POST" action="/editresort">  {% csrf_token %}<input type="hidden" name="rid" value="{{id}}"/> <input class="btn btn-success" name="status" type="submit" value="Edit"></form></td>
+                      <td>  <form method="POST" action="/deleteresort">  {% csrf_token %}<input type="hidden" name="rid" value="{{id}}"/> <input class="btn btn-danger mx-2" name="status1" type="submit" value="Delete"></form>
+                </td>
+                </tr>
+
+        {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+    </div>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="static/js/Simple-Slider.js"></script>
+<style>
+/* (A) LIGHTBOX BACKGROUND */
+#lightbox {
+  /* (A1) COVERS FULLSCREEN */
+  position: fixed; z-index: 999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+
+  /* (A2) BACKGROUND */
+  background: rgba(0, 0, 0, 0.5);
+
+  /* (A3) CENTER IMAGE ON SCREEN */
+  display: flex;
+  align-items: center;
+  align-items: center;
+
+  /* (A4) HIDDEN BY DEFAULT */
+  visibility: hidden;
+  opacity: 0;
+
+  /* (A5) SHOW/HIDE ANIMATION */
+  transition: opacity ease 0.4s;
+}
+
+/* (A6) TOGGLE VISIBILITY */
+#lightbox.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* (B) LIGHTBOX IMAGE */
+#lightbox img {
+  /* (B1) DIMENSIONS */
+  width: 100%;
+  height: auto;
+
+  /* (B2) IMAGE FIT */
+  /* contain | cover | fill | scale-down */
+  object-fit: cover;
+}
+
+/* (C) LIGHTBOX IMAGE - FULLSCREEN ALTERNATIVE *
+#lightbox img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+</style>
+<script>
+window.onload = () => {
+  // (A) GET LIGHTBOX & ALL .ZOOMD IMAGES
+  let all = document.getElementsByClassName("zoomD"),
+      lightbox = document.getElementById("lightbox");
+
+  // (B) CLICK TO SHOW IMAGE IN LIGHTBOX
+  // * SIMPLY CLONE INTO LIGHTBOX & SHOW
+  if (all.length>0) { for (let i of all) {
+    i.onclick = () => {
+      let clone = i.cloneNode();
+      clone.className = "";
+      lightbox.innerHTML = "";
+      lightbox.appendChild(clone);
+      lightbox.className = "show";
+    };
+  }}
+
+  // (C) CLICK TO CLOSE LIGHTBOX
+  lightbox.onclick = () => {
+    lightbox.className = "";
+  };
+};
+</script>
+</body>
+
+</html>

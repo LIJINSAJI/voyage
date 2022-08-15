@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>payment (1)</title>
+    <link rel="stylesheet" href="static/assets2/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets2/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets2/css/Bootstrap-Payment-Form.css">
+    <link rel="stylesheet" href="static/assets2/css/styles.css">
+</head>
+
+<body>
+    <div class="row .payment-dialog-row" style="margin-top: 5%;">
+        <div class="col-12 col-md-4 offset-md-4">
+            <div class="card credit-card-box">
+                <div class="card-header">
+                    <h3><span class="panel-title-text">Payment Details </span><img class="img-fluid panel-title-image" src="static/assets2/img/accepted_cards.png"></h3>
+                </div>
+                <div class="card-body">
+
+                    <form id="payment-form" action="/payment" method="post">
+                        {% csrf_token %}
+
+<input type="hidden" value={{id}} name="rid" >
+                         <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-3"><label class="form-label" for="Cardholdername">Card Holder Name </label>
+                                    <div class="input-group"><input class="form-control" type="text" name="Name" required="" placeholder="Name"><span class="input-group-text"><i class=""></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-3"><label class="form-label" for="cardNumber">Card number </label>
+                                    <div class="input-group"><input class="form-control" type="text"  required="" name="number" placeholder="Valid Card Number"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="form-group mb-3"><label class="form-label" for="cardExpiry"><span>expiration </span><span>EXP </span> date</label><input class="form-control" type="text"  required="" name="expiry" placeholder="MM / YY"></div>
+                            </div>
+                            <div class="col-5 pull-right">
+                                <div class="form-group mb-3"><label class="form-label" for="cardCVC">cv code</label><input class="form-control" type="text" id="cardCVC" required="" name="cvv" placeholder="CVV"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password"  name="password" placeholder="password"><i class="validation"></i></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12"><button class="btn btn-success btn-lg d-block w-100" type="submit">Pay</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/assets2/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

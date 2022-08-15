@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Travel</title>
+    <link rel="stylesheet" href="static/assets5/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets5/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="static/assets5/css/styles.css">
+</head>
+
+<body class="user-select-none">
+<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgba(73,80,87,0.3) !important;border-radius: 15px;box-shadow: none !important;">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+ <li class="nav-item dropdown no-arrow"><a class="nav-link" style="font-weight: bold;color: var(--bs-body-bg);" href="/userlogin">Go back<i class="fas fa-undo" style="font-size: 20px;padding-left: 5px;"></i></a></li>
+                              </ul>
+                    </div>
+                </nav>
+    <section class="login-clean" style="background: var(--bs-yellow);">
+        <form method="post" action="/viewpack">
+            {% csrf_token %}
+            <h2 class="visually-hidden">Search Package</h2>
+            <div class="mb-3"><input class="form-control" type="text" required="" placeholder="Location" name="location"></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: var(--bs-teal);">Search</button></div>
+        </form>
+    </section>
+    <div style="background: var(--bs-orange);position: relative;top: -40px;height: 477px;">
+        <div class="container" style="position: relative;top: 50px;">
+            <div class="row">
+                <div class="col-md-5 col-xxl-3">
+
+
+                    <div data-bss-hover-animate="tada" style="padding: 20px;padding-left: 5px;padding-right: 5px;background: var(--bs-body-bg);width: 900px;margin-bottom: 10px;border-radius: 20px;height: 100%;">
+                        <table class="table my-0" id="dataTable" align="center">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Name</th>
+                                                <th>Route</th>
+                                                <th>Location</th>
+                                                <th>Itinerary</th>
+                                                <th>Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {{mes}}
+                                            <tr>
+                                                  {% for id,name,route,location,itinerary,cost in record %}
+                    <form action="/viewpack1" method="post">
+                         {% csrf_token %}
+                                             <input type="hidden" name="pid" value= {{ id }}>   <td> {{id}}</td>
+                                                <td style="width: 300px;">{{ name }}</td>
+                                                <td style="width: 300px;">{{ route }}</td>
+                                                <td style="width: 300px;">{{ location }}</td>
+                          <td style="width: 300px;">{{ itinerary }}</td>
+                                                <td style="width: 300px;">{{ cost }}</td>
+                                                <td> <button class="btn btn-primary text-center" data-bss-hover-animate="pulse" type="submit" style="border-radius: 20px;margin-left: %;background: var(--bs-gray-300);border-style: none;color: var(--bs-gray-600);font-weight: bold;padding-left: 20px;padding-right: 20px;margin-right: 30%;">Book</button>
+       </td>
+                    </form>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                      <!--  <div style="margin-left: 3px;margin-right: 3px;">
+                            <h2 style="text-align: center;">{{ name }}</h2>
+                            <p  style="text-align: justify;font-size: 20px;margin-left: 10px;margin-right: 10px;">{{ route }}</p>
+                            <h4 style="text-align: center;">{{ location }}</h4>
+                            <h4 style="text-align: center;">{{ itinerary }}</h4>
+                            <h4 style="text-align: center;">{{ cost }}</h4>
+                        </div>-->
+                                    </div>
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/assets5/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets5/js/bs-init.js"></script>
+</body>
+
+</html>

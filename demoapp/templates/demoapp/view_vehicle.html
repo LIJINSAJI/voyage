@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>voyage</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre&amp;display=swap">
+    <link rel="stylesheet" href="static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar-1.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar-2.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="static/assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="static/assets/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="static/assets/css/gradient-navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="static/assets/css/Ludens-Users---25-After-Register.css">
+    <link rel="stylesheet" href="static/assets/css/Map-Clean.css">
+    <link rel="stylesheet" href="static/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="static/assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="static/assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="static/assets/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background: rgba(73,80,87,0.3) !important;border-radius: 15px;box-shadow: none !important;">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow"><a class="nav-link" style="font-weight: bold;color: var(--bs-body-bg);" href="/travel">Go back<i class="fas fa-undo" style="font-size: 20px;padding-left: 5px;"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+       <div>
+
+        <div id="lightbox"></div>
+    <div style="margin-bottom: 5%;margin-top: 5%;">
+    <div class="table-responsive" style="background: linear-gradient(-45deg, var(--bs-yellow), var(--bs-teal));margin-left: 5%;margin-right: 5%;border-radius: 20px;padding: 20px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="visually-hidden">Id</th>
+                    <th>Image</th>
+                    <th>Car</th>
+                    <th>Car Number</th>
+                    <th>Arrival Time</th>
+                    <th>Destination</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+               {% for id,image,name,departure,arrival,destination in records %}
+            <form action="/carrpayment" method="post">
+                {% csrf_token %}
+                <tr>
+                    <td ><input type="hidden" name="carid" value="{{id}}"/> </td>
+
+                    <td><img src="{{ image }}" class="zoomD" width="80px" height="80px" alt="img" /></td>
+<td>{{ name }}</td>
+                    <td>{{ departure }}</td>
+                    <td>{{ arrival }}</td>
+                    <td>{{ destination }}</td>
+                    <td><button class="btn btn-primary" type="submit" style="color: var(--bs-dark);border-radius: 20px;border-style: none;border-color: var(--bs-dark);background: rgba(255,255,255,0.2);">Book Now</button></td>
+                </tr>
+        </form>
+        {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="https://geodata.solutions/includes/countrystate.js"></script>
+    <script src="static/assets/js/Simple-Slider.js"></script>
+        <style>
+/* (A) LIGHTBOX BACKGROUND */
+#lightbox {
+  /* (A1) COVERS FULLSCREEN */
+  position: fixed; z-index: 999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+
+  /* (A2) BACKGROUND */
+  background: rgba(0, 0, 0, 0.5);
+
+  /* (A3) CENTER IMAGE ON SCREEN */
+  display: flex;
+  align-items: center;
+  align-items: center;
+
+  /* (A4) HIDDEN BY DEFAULT */
+  visibility: hidden;
+  opacity: 0;
+
+  /* (A5) SHOW/HIDE ANIMATION */
+  transition: opacity ease 0.4s;
+}
+
+/* (A6) TOGGLE VISIBILITY */
+#lightbox.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* (B) LIGHTBOX IMAGE */
+#lightbox img {
+  /* (B1) DIMENSIONS */
+  width: 100%;
+  height: auto;
+
+  /* (B2) IMAGE FIT */
+  /* contain | cover | fill | scale-down */
+  object-fit: cover;
+}
+
+/* (C) LIGHTBOX IMAGE - FULLSCREEN ALTERNATIVE *
+#lightbox img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+</style>
+<script>
+window.onload = () => {
+  // (A) GET LIGHTBOX & ALL .ZOOMD IMAGES
+  let all = document.getElementsByClassName("zoomD"),
+      lightbox = document.getElementById("lightbox");
+
+  // (B) CLICK TO SHOW IMAGE IN LIGHTBOX
+  // * SIMPLY CLONE INTO LIGHTBOX & SHOW
+  if (all.length>0) { for (let i of all) {
+    i.onclick = () => {
+      let clone = i.cloneNode();
+      clone.className = "";
+      lightbox.innerHTML = "";
+      lightbox.appendChild(clone);
+      lightbox.className = "show";
+    };
+  }}
+
+  // (C) CLICK TO CLOSE LIGHTBOX
+  lightbox.onclick = () => {
+    lightbox.className = "";
+  };
+};
+</script>
+</body>
+
+</html>

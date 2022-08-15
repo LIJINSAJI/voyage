@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>voyage</title>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre&amp;display=swap">
+    <link rel="stylesheet" href="static/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar-1.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar-2.css">
+    <link rel="stylesheet" href="static/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="static/css/Footer-Basic.css">
+    <link rel="stylesheet" href="static/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="static/css/gradient-navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="static/css/Map-Clean.css">
+    <link rel="stylesheet" href="static/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="static/css/Simple-Slider.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        }
+
+        setTimeout("preventBack()", 0);
+
+        window.onunload = function () { null };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><i class="icon ion-ios-infinite" id="brand-logo"></i></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto"></ul>
+                <li class="nav-item" style="margin-left:90%;"><a class="nav-link" style="color:#ffffff;" href="/index"><i class="fa fa-sign-out"></i>Logout</a></li>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 90px;">
+        <div class="row">
+            <div class="col-md-3">
+                <div style="height: 370px;background: var(--bs-orange);border-radius: 20px;">
+                    <div style="height: 25%;">
+                        <div class="d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" style="z-index: 10;position: relative;left: 21%;top: 60px;width: 150px;height: 150px;border-radius: 50%;background: linear-gradient(-12deg, var(--bs-orange) 28%, rgba(255,255,255,0.83));box-shadow: inset 3px 4px 0px rgba(255,255,255,0.35), 3px 4px 15px rgba(33,37,41,0.1);"><i class="fa fa-plane" style="font-size: 500%;"></i></div>
+                    </div>
+                    <div style="height: 280px;background: var(--bs-gray-800);clip-path: polygon(50% 15%,100% 0, 100% 100%,0 100%, 0 0);border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding-right: 5px;padding-left: 5px;"><a href="/addpack">
+                            <h1 style="color: var(--bs-white);text-align: center;position: relative;top: 160px;">Tour Packages</h1>
+                        </a></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div style="height: 370px;background: var(--bs-orange);border-radius: 20px;">
+                    <div style="height: 25%;">
+                        <div class="d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" style="z-index: 10;position: relative;left: 21%;top: 60px;width: 150px;height: 150px;border-radius: 50%;background: linear-gradient(-12deg, var(--bs-orange) 28%, rgba(255,255,255,0.83));box-shadow: inset 3px 4px 0px rgba(255,255,255,0.35), 3px 4px 15px rgba(33,37,41,0.1);"><i class="fas fa-car-side" style="font-size: 500%;"></i></div>
+                    </div>
+                    <div style="height: 280px;background: var(--bs-gray-800);clip-path: polygon(50% 15%,100% 0, 100% 100%,0 100%, 0 0);border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding-right: 5px;padding-left: 5px;"><a href="/view_vehicle">
+                            <h1 style="color: var(--bs-white);text-align: center;position: relative;top: 160px;">Vehicles</h1>
+                        </a></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div style="height: 370px;background: var(--bs-orange);border-radius: 20px;">
+                    <div style="height: 25%;">
+                        <div class="d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" style="z-index: 10;position: relative;left: 21%;top: 60px;width: 150px;height: 150px;border-radius: 50%;background: linear-gradient(-12deg, var(--bs-orange) 28%, rgba(255,255,255,0.83));box-shadow: inset 3px 4px 0px rgba(255,255,255,0.35), 3px 4px 15px rgba(33,37,41,0.1);"><i class="fa fa-home" style="font-size: 500%;"></i></div>
+                    </div>
+                    <div style="height: 280px;background: var(--bs-gray-800);clip-path: polygon(50% 15%,100% 0, 100% 100%,0 100%, 0 0);border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding-right: 5px;padding-left: 5px;"><a href="/tr_resort">
+                            <h1 style="color: var(--bs-white);text-align: center;position: relative;top: 160px;">Resort</h1>
+                        </a></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div style="height: 370px;background: var(--bs-orange);border-radius: 20px;">
+                    <div style="height: 25%;">
+                        <div class="d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" style="z-index: 10;position: relative;left: 21%;top: 60px;width: 150px;height: 150px;border-radius: 50%;background: linear-gradient(-12deg, var(--bs-orange) 28%, rgba(255,255,255,0.83));box-shadow: inset 3px 4px 0px rgba(255,255,255,0.35), 3px 4px 15px rgba(33,37,41,0.1);"><i class="fa fa-image" style="font-size: 500%;"></i></div>
+                    </div>
+                    <div style="height: 280px;background: var(--bs-gray-800);clip-path: polygon(50% 15%,100% 0, 100% 100%,0 100%, 0 0);border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding-right: 5px;padding-left: 5px;"><a href="/viewbkd">
+                            <h1 style="color: var(--bs-white);text-align: center;position: relative;top: 160px;">view Booked Packages</h1>
+                        </a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="static/js/Simple-Slider.js"></script>
+</body>
+
+</html>
